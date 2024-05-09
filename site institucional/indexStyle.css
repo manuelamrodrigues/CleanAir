@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 
@@ -56,4 +57,96 @@ header{
     display: flex;
     width: 300px;
     height: auto;
+}
+
+
+/* CARROSEL DE INFOS */
+
+.slider{
+    margin: 0 auto;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    align-items: center;
+    margin-top: 100px;
+    background-color: violet;
+
+}
+
+.slides{
+    display: flex;
+    align-items: center;
+    width: 400%;
+    height: 400px;
+    /* background-color: violet; */
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 25%;
+    position: relative;
+
+}
+
+
+.slide img{
+    width: 800px;
+}
+
+
+.manual-navigation{
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn hover{
+    background-color: white;
+
+}
+
+#radio1:checked ~ .first{  /* quando a imagem estive clicada, ela ocupar 100% do seu espaço e a outra nao aparecer */
+    margin-left: 0; 
+
+} 
+
+#radio2:checked ~ .first{  /* quando a imagem estive clicada, ela ocupar 100% do seu espaço e a outra nao aparecer */
+    margin-left: -25%; 
+
+}
+
+#radio3:checked ~ .first{  /* quando a imagem estive clicada, ela ocupar 100% do seu espaço e a outra nao aparecer */
+    margin-left: -50%; 
+
+}
+
+#radio4:checked ~ .first{  /* quando a imagem estive clicada, ela ocupar 100% do seu espaço e a outra nao aparecer */
+    margin-left: -75%; 
+
+}
+
+.slides h1{
+    text-align: center;
+}
+
+.slider h1{
+    margin-left: 30px;
 }

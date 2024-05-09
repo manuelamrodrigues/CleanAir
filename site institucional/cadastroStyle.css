@@ -10,15 +10,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-image: url("imgs/imgCadastro.png");
+    background-image: url("imgs/imgCadastro.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; */
+    background-position: center;
 }
 
 .login{
     width: 400px;
-    /* background: #ffffff3f; */
+    background-color: #9932cc;
+    /* background-color: rgb(241, 169, 241); */
     border-radius: 18px;
     padding: 25px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 10px 10px 20px rgba(0, 0, 0, 0.4);
@@ -42,6 +43,7 @@ body{
 .input_box span{
     font-size: 20px;
     font-weight: 500;
+    
 }
 
 .input_box .icon{
@@ -69,13 +71,14 @@ body{
     border: 2px solid white;
     font-size: 18px;
     box-shadow: 1px 1px 2px;
+    background-color: #f0f8ff;
 }
 
 .login .esqueceuSenha a{
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
-    color: green;
+    color: black;
 
 }
 
@@ -88,6 +91,7 @@ body{
     font-size: 18px;
     margin: 10px 0;
     cursor: pointer;
+    background-color: #f0f8ff;
 }
 
 .login .temConta p{
