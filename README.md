@@ -1,7 +1,5 @@
 # CleanAir - Juntos somos mais fortes
 <h2><b>Descrição</b></h2>
-
-<br>
 A CleanAir é uma Organização Sem Fins Lucrativos que visa conscientizar a população 
 sobre o impacto das mudanças climáticas e, a partir disso, gerar uma mudança comportamental. Afinal, 
 juntos somos mais fortes!
