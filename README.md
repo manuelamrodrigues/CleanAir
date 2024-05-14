@@ -15,9 +15,9 @@ Dashboard para acompanhamento de métricas.
 
 
 <h2><b>Linguagens utilizadas</b></h2>
-HTML 
+HTML;
 <br>
-CSS3
+CSS3;
 <br>
 JavaScript
 <br>
