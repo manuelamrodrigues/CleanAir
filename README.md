@@ -19,7 +19,7 @@ HTML;
 <br>
 CSS3;
 <br>
-JavaScript
+JavaScript.
 <br>
 
 <h2><b>Como acessar</b></h2>
