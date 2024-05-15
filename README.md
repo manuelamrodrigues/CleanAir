@@ -1,4 +1,4 @@
-# CleanAir - Juntos somos mais fortes
+# CleanAir - Juntos somos mais fortes 🌳
 <h2><b>Descrição</b></h2>
 A CleanAir é uma Organização Sem Fins Lucrativos que visa conscientizar a população 
 sobre o impacto das mudanças climáticas e, a partir disso, gerar uma mudança comportamental. Afinal, 
@@ -7,19 +7,19 @@ juntos somos mais fortes!
 
 <h2><b>Funcionalidades</b></h2>
 
-Site institucional; 
+• Site institucional; 
 <br>
-Página de cadastro e login; 
+• Página de cadastro e login; 
 <br>
-Dashboard para acompanhamento de métricas.
+• Dashboard para acompanhamento de métricas.
 
 
 <h2><b>Linguagens utilizadas</b></h2>
-HTML;
+• HTML;
 <br>
-CSS3;
+• CSS3;
 <br>
-JavaScript.
+• JavaScript.
 <br>
 
 <h2><b>Como acessar</b></h2>
