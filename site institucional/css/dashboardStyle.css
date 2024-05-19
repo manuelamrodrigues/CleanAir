@@ -40,7 +40,7 @@ header{
 }
 
 .nav-item{
-    margin: 0 25px;
+    margin: 0 15px;
 
 
 }
@@ -115,12 +115,12 @@ header{
 
 .impactos{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 450px;
+    height: 550px;
     background-color: #633062;
     color: white;
 }
@@ -131,49 +131,59 @@ header{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* margin: 40px;  */
     justify-content: center;
     font-size: 28px;
+    margin: 20px;
+    margin-bottom: 5px;
 
 }
 
 .impactos .right-topics{
+    display: flex;
+    justify-content: center;
     margin-left: auto;
-    text-align: center;
-    align-items: center;
+    text-align: right;
+    /* align-items: center; */
+    
 }
-
-.impactos .right-topics:last-child{
-    margin-bottom: 160px;
-}
-
 
 
 .impactos .left-topics{
-    margin-right: auto;
-    text-align: center;
-    align-items: center;
-}
-
-.impactos h1 {
-    font-size: 40px;
-    padding: 10px 0;
-    margin-top: 35px;
- 
-}
-
-.impactos .imgImpacto{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+    text-align: left;
+    align-items: center;
+    align-items: flex-end;
+}
+
+
+
+.impactos .impactosTitulo h1,
+.impactos .impactosTitulo .imgImpacto {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    font-size: 40px;
+    padding: 20px 0;
+
 }
 
-.impactos .imgImpacto img{
+.impactos .impactosTitulo h1{
+    margin-top: -60px;
+
+}
+
+
+
+.impactosTitulo .imgImpacto img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 250px;
-    max-width: 100%;
-    max-height: 100%;
+
 }
 
 
@@ -182,29 +192,30 @@ header{
 
 .grafico{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    height: 550px;
-    overflow: hidden;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(138, 196, 77, 0.5);
     color: white;
-    
-  
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
 }
+
 
 .grafico h1{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 40px;
     padding: 25px;
     margin: 30px;
     white-space: pre-line;
     line-height: 1.5;
+    margin-top: -250px;
 }
 
 
@@ -219,13 +230,25 @@ header{
 
 .container{
     position: relative;
-    max-width: 320px;
-    width: 50%;
+    /* max-width: 320px; */
+    width: 33.3%;
+    /* height: 50%; */
     border-radius: 8px;
-    /* margin: 80px auto 30px; */
     background-color: #633062;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     flex-direction: row;
+    margin: 15px;
+    margin-top: 50px;
+}
+
+.container:active,
+.container:focus{
+    /* border: 14px solid white; */
+    transition: 0.3s;
+}
+
+.container:hover{
+    box-shadow: 8px 8px 8px white;
 
 }
 
@@ -250,7 +273,7 @@ header{
 }
 
 .list-itens .item:hover{
-    background-color: rgba(138, 196, 77, 0.5)
+    background-color: rgba(138, 196, 77, 0.5);
 }
 
 
@@ -298,25 +321,16 @@ header{
 }
 
 
-
-.grafico{
-    display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(138, 196, 77, 0.5);
-    color: white;
-}
-
-
 .graficoTempoReal{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 33.3%;
     margin: 30px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    
 }
 
 
@@ -367,10 +381,24 @@ header{
     overflow: hidden;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     margin: 20px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .card-content{
     padding: 16px;
+}
+
+.card:active,
+.card:focus{
+    border: 14px solid white;
+    transition: 0.3s;
+}
+
+.card:hover{
+    box-shadow: 8px 8px 8px white;
+
 }
 
 .card-content h3{

@@ -37,7 +37,7 @@
             <span>Senha</span>
             <div class="icon">
                 <i class='bx bxs-lock-alt'></i>
-                <input type="text" id="input_senha" placeholder="Senha">
+                <input type="password" id="input_senha" placeholder="Senha">
             </div>
         </div>
 
@@ -46,7 +46,7 @@
             <span>Confirmação de senha</span>
             <div class="icon">
                 <i class='bx bxs-lock-alt'></i>
-                <input type="text" id="input_confSenha" placeholder="Confirmação de senha">
+                <input type="password" id="input_confSenha" placeholder="Confirmação de senha">
             </div>
         </div>
 
@@ -55,7 +55,7 @@
             <a href="">Esqueceu a senha?</a>
         </div>
 
-        <button type="submit">Cadastrar</button>
+        <button onclick="cadastrar()">Cadastrar</button>
 
         <div class="temConta">
             <p>Já possui conta? <a href="login.html">Login</a></p>
@@ -65,3 +65,45 @@
     </div>
 </body>
 </html>
+<script>
+    function cadastrar() {
+        var nome = document.getElementById("input_nome").value;
+        var email = document.getElementById("input_email").value;
+        var senha = document.getElementById("input_senha").value;
+        var confSenha = document.getElementById("input_confSenha").value;
+
+
+        // console.log("Nome:", nome);
+        // console.log("Email:", email);
+        // console.log("Senha:", senha);
+        // console.log("Confirmação de senha:", confSenha);
+
+        var email_pcom = email.endsWith(".com");
+        var email_arroba = email.indexOf('@');
+        var tam_senha = senha.length;
+
+
+        if(email_arroba < 0){
+            alert('Seu e-mail deve conter "@"')
+        }
+
+        else if (email_pcom != true) {
+            alert('Seu email deve terminar com ".com"');
+        }
+
+       else if (tam_senha <= 6) {
+            alert('Coloque uma senha com 6 ou mais caracteres');
+        }
+
+        else if (confSenha != senha) {
+            alert('Digite a senha correta');
+        }
+
+        else{
+            // console.log("Cadastro realizado com sucesso!");
+            window.location.href = 'login.html';
+        }
+        
+    }
+    
+</script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | CleanAir </title>
+    <title>Login | CleanAir </title>
     <link rel="stylesheet" href="css\cadastroStyle.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link  href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
@@ -29,7 +29,7 @@
             <span>Senha</span>
             <div class="icon">
                 <i class='bx bxs-lock-alt'></i>
-                <input type="text" id="input_senha" placeholder="Senha">
+                <input type="password" id="input_senha" placeholder="Senha">
             </div>
         </div>
 
@@ -39,9 +39,38 @@
             <a href="">Esqueceu a senha?</a>
         </div>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" onclick="entrar()">Entrar</button>
 
     </form>
     </div>
 </body>
 </html>
+<script>
+    function entrar() {
+        var email = input_email.value;
+        var senha = input_senha.value;
+
+        var email_pcom = email.endsWith(".com");
+        var email_arroba = email.indexOf('@');
+        var tam_senha = senha.length;
+
+
+        if(email_arroba < 0){
+            alert('Seu e-mail deve conter "@"')
+        }
+
+        else if (email_pcom != true) {
+            alert('Seu email deve terminar com ".com"');
+        }
+
+       else if (tam_senha <= 6) {
+            alert('Coloque uma senha com 6 ou mais caracteres');
+        }
+
+        else{
+            window.location.href = 'dashboard.html';
+        }
+        
+    }
+    
+</script>
