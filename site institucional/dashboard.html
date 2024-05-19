@@ -8,6 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link
         href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -19,43 +21,49 @@
 
             <div class="nav-list">
                 <ul>
-                    <li class="nav-item"> <a href="#quemSomos" class="nav-link">Enquete </a></li>
-                    <li class="nav-item"> <a href="#onu" class="nav-link">Como combater </a></li>
+                    <li class="nav-item"> <a href="#mudancas" class="nav-link">Mudanças climáticas </a></li>
+                    <li class="nav-item"> <a href="#impactos" class="nav-link">Impactos </a></li>
+                    <li class="nav-item"> <a href="#doencas" class="nav-link">Doenças </a></li>
+                    <li class="nav-item"> <a href="#combater" class="nav-link">Dicas para combater </a></li>
+                    <li class="nav-item"> <a href="#ongs" class="nav-link">Outras ONGs </a></li>
                 </ul>
             </div>
 
-            <div class="login-button">
+            <!-- <div class="login-button">
                 <i class='bx bx-exit'></i>
                 <li class="nav-item"> <a href="login.html" class="nav-link">Sair </a></li>
-            </div>
+            </div> -->
         </nav>
     </header>
 
     <div class="maior">
 
-        <div class="mudancas">
+
+
+
+        <div class="mudancas" id="mudancas">
             <h1>Afinal, o que são mudanças climáticas?</h1>
-            <span id="textoMudancas">De acordo com o Conselho Nacional do Meio Ambiente (Conama), trata-se de 
-                quaisquer alterações no meio ambiente resultantes da atividade humana que afetam: <br>
-                • A saúde, segurança ou bem-estar da população; <br>
-                • As atividades sociais e econômicas; <br>
-                • Os seres vivos e as condições estéticas e sanitárias do meio ambiente
+            <span id="textoMudancas">Segundo o Conselho Nacional do Meio Ambiente, trata-se de quaisquer alterações no meio ambiente resultantes da atividade humana que afetam: 
+                • A saúde, segurança ou bem-estar da população; 
+                • As atividades sociais e econômicas; 
+                • Os seres vivos e as condições estéticas e sanitárias do meio ambiente.
             </span>
         </div>
 
-        <div class="impactos">
-            <h1>Como impactam os seres vivos?</h1>
+        <div class="impactos" id="impactos">
+                <h1>Como impactam os seres vivos?</h1>
 
             <div class="left-topics">
                 <span>
                 • Aumento das secas <br>
-                • Tempestades severas
+                • Tempestades severas <br>
+                • Contamina e degrada o solo
                 </span>
             </div>
 
-            <div class="imgImpacto">
+            <!-- <div class="imgImpacto">
                 <img src="./imgs/globoFogo.png" alt="" id="img1">
-            </div>
+            </div> -->
 
             <div class="right-topics">
                 <span>
@@ -67,22 +75,88 @@
             </div>
         </div>
 
-        <div class="grafico">
-            <h1>Doenças potencializadas pela mudança climática</h1>
-            <span id="textoGrafico">Devido as alterações no meio ambiente, algumas doenças, principalmente aquelas transmitidas 
-                por mosquitos, podem aumentar com a crise climática 
 
-                Vote em quantas doenças você já enfretou esse ano: 
-                
-            </span>
+
+
+
+        <div class="grafico" id="doencas">
+            <h1>Doenças potencializadas pelas mudanças climáticas</h1>
+
+            <div class="graficoTexto">
+            
+            </div>
+          
+
+            <div class="container">
+                <div class="select-btn">
+                    <span class="btn-text">Devido as alterações no meio ambiente, algumas doenças, principalmente aquelas transmitidas 
+                        por mosquitos, podem aumentar. Vote em quais dessas doenças você já enfretou esse ano:  </span>
+                </div>
+                <ul class="list-itens">
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Dengue</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Malária</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Leishmaniose</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Febre amarela</span>
+                </li>
+            </ul>
+            </div>
+
+          
+                <div class="graficoTempoReal">   
+                    <canvas id="myChart"></canvas>
+                </div>
         </div>
 
-        <div class="combater">
-            <h1>Combater</h1>
-            <span id="textoCombater">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias harum laboriosam, rerum obcaecati debitis quis laborum? Sequi excepturi quia dolores dicta ratione repellat pariatur suscipit laboriosam, eveniet perferendis iusto atque!</span>
+
+
+
+        <div class="combater" id="combater">
+            <h1> 3 Ações para ajudar a combater as mudanças climáticas</h1>
+
+            <div class="card-container">
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Diminua o uso de combustíveis fósseis </h3>
+                        <p>Dê preferência ao uso de biocombustíveis e etanol ou use transportes públicos, faça caminhada e ande de bicicleta. </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Não use produtos com gás CFC </h3>
+                        <p>Geralmente encontrado em aerossóis ou produtos de refrigeração, esse gás costuma corroer a camada de ozônio responsável por proteger a terra de raios ultravioletas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Economize energia </h3>
+                        <p>Dê preferência ao uso de fontes de energia limpa e renováveis. Invista em eficiência energética, ou seja, otimize processos para evitar desperdícios.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="outrasONGs">
+
+
+
+
+        <div class="outrasONGs" id="ongs">
                 <div class="imgs-left">
                     <a href="https://ipam.org.br/pt/"><img src="imgs\ipamLogo.png" alt="IPAM logo" id="img1"></a>
                     <a href="https://www.oxfam.org.br/"><img src="imgs\oxfamLogo.png" alt="OXAM logo" id="img2"></a>
@@ -98,7 +172,6 @@
                     <a href="https://www.tnc.org.br/"><img src="imgs\tncLogo.png" alt="TNC logo" id="img4"></a>
                 </div>
             </div>
-            
             
         </div>
 
@@ -129,16 +202,19 @@
                         <h3>Explorar</h3>
                     </li>
                     <li>
-                        <a href="#quemSomos" class="footer-link">Quem somos?</a>
+                        <a href="#mudancas" class="footer-link">Mudanças climáticas</a>
                     </li>
                     <li>
-                        <a href="#onu" class="footer-link">ONU</a>
+                        <a href="#impactos" class="footer-link">Impactos</a>
                     </li>
                     <li>
-                        <a href="cadastro.html" class="footer-link">Cadastro</a>
+                        <a href="#doencas" class="footer-link">Doenças</a>
                     </li>
                     <li>
-                        <a href="login.html" class="footer-link">Login</a>
+                        <a href="#combater" class="footer-link">Dicas para combater</a>
+                    </li>
+                    <li>
+                        <a href="#ongs" class="footer-link">Outras ONGs</a>
                     </li>
                 </ul>
     
@@ -147,8 +223,6 @@
                     <p>Desenvolvido por Manuela Monteiro</p>
                     
                 </div>
-    
-    
             </div>
         </footer>
 
@@ -158,3 +232,43 @@
     
 </body>
 </html>
+
+<script>
+    function teste() {
+        // window.location.href = "./dashboard/dashIndex.html"
+        window.location.href = "login.html"
+        
+    }
+    const labels = [
+        'Dengue',
+        'Malária',
+        'Leishmaniose',
+        'Febre amarela',
+    ];
+    
+
+
+    const data = {  
+        labels: labels,  
+        datasets: [{ 
+            label: 'Temperatura',
+            backgroundColor: '#633062',
+            borderColor: '#fff',
+            data: [50, 25, 15, 10],
+        },
+        ]
+       
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
