@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | CleanAir </title>
+    <link rel="stylesheet" href="../css/dashboardStyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+
+            <div class="logo">
+                <a href="../index.html"><img src="../assets/imgs/logo.png" alt="logo"></a>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"> <a href="#mudancas" class="nav-link">Mudanças climáticas </a></li>
+                    <li class="nav-item"> <a href="#impactos" class="nav-link">Impactos </a></li>
+                    <li class="nav-item"> <a href="#doencas" class="nav-link">Doenças </a></li>
+                    <li class="nav-item"> <a href="#combater" class="nav-link">Minimizando as mudanças </a></li>
+                    <li class="nav-item"> <a href="#ongs" class="nav-link">Outras ONGs </a></li>
+                </ul>
+            </div>
+
+            <!-- <div class="login-button">
+                <i class='bx bx-exit'></i>
+                <li class="nav-item"> <a href="login.html" class="nav-link">Sair </a></li>
+            </div> -->
+        </nav>
+    </header>
+
+    <div class="maior">
+
+
+
+
+        <div class="mudancas" id="mudancas">
+            <h1>Afinal, o que são mudanças climáticas?</h1>
+            <span id="textoMudancas">Segundo o Conselho Nacional do Meio Ambiente, trata-se de quaisquer alterações no meio ambiente resultantes da atividade humana que afetam: 
+                • A saúde, segurança ou bem-estar da população; 
+                • As atividades sociais e econômicas; 
+                • Os seres vivos e as condições estéticas e sanitárias do meio ambiente.
+            </span>
+        </div>
+
+        <div class="impactos" id="impactos">
+
+            <div class="left-topics">
+                <span>
+                Aumento das secas <br><br>
+                Tempestades severas <br><br>
+                Contamina e degrada o solo
+                </span>
+            </div>
+
+            <div class="impactosTitulo">
+                <h1>Como impactam os seres vivos?</h1>
+
+                <div class="imgImpacto">
+                    <img src="../assets/imgs/globoFogo.png" alt="" id="img1">
+                </div>
+
+            </div>
+
+            <!-- <div class="imgImpacto">
+                <img src="./imgs/globoFogo.png" alt="" id="img1">
+            </div> -->
+
+            <div class="right-topics">
+                <span>
+                 Aumento de doenças <br><br>
+                Perda de espécies <br><br>
+                Pobreza e deslocamento
+                </span>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="grafico" id="doencas">
+
+            <div class="container">
+                <div class="select-btn">
+                    <span class="btn-text">Devido as alterações no meio ambiente, algumas doenças, principalmente aquelas transmitidas 
+                        por mosquitos, podem aumentar. Vote em quais dessas doenças você já enfretou esse ano:  </span>
+                </div>
+
+                <ul class="list-itens">
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Dengue</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Malária</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Leishmaniose</span>
+                </li>
+
+                <li class="item">
+                    <button onclick="teste()"></button>
+                    <span class="item-text">Febre amarela</span>
+                </li>
+            </ul>
+            </div>
+
+            <div class="graficoTitulo">
+                <h1>Doenças potencializadas pelas mudanças climáticas</h1>
+            </div>
+
+          
+                <div class="graficoTempoReal">   
+                    <canvas id="myChart"></canvas>
+                </div>
+        </div>
+
+
+
+
+        <div class="combater" id="combater">
+            <h1> 3 Ações para minimizar mudanças climáticas</h1>
+
+            <div class="card-container">
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Diminua o uso de combustíveis fósseis </h3>
+                        <p>Dê preferência ao uso de biocombustíveis e etanol ou use transportes públicos, faça caminhada e ande de bicicleta. </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Não use produtos com gás CFC </h3>
+                        <p>Geralmente encontrado em aerossóis ou produtos de refrigeração, esse gás costuma corroer a camada de ozônio responsável por proteger a terra de raios ultravioletas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Economize energia </h3>
+                        <p>Dê preferência ao uso de fontes de energia limpa e renováveis. Invista em eficiência energética, ou seja, otimize processos para evitar desperdícios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="outrasONGs" id="ongs">
+                <div class="imgs-left">
+                    <a href="https://ipam.org.br/pt/"><img src="../assets/imgs/ipamLogo.png" alt="IPAM logo" id="img1"></a>
+                    <a href="https://www.oxfam.org.br/"><img src="../assets/imgs/oxfamLogo.png" alt="OXAM logo" id="img2"></a>
+                </div>
+
+                <div class="textos">
+                    <h1>Conheça outras ONG's que apoiam a causa.</h1>
+                    <h1>Juntos fazemos a diferença!</h1>
+                </div>
+            
+                <div class="imgs-right">
+                    <a href="https://www.sosma.org.br/"><img src="../assets/imgs/sos2.png" alt="SOS MA logo" id="img3"></a>
+                    <a href="https://www.tnc.org.br/"><img src="../assets/imgs/tncLogo.png" alt="TNC logo" id="img4"></a>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+        <footer>
+            <div id="footer_content">
+                <div id="footer_contacts">
+                     <h1>CleanAir</h1>
+                    <p>Juntos fazemos a diferença!</p>
+    
+                    <div id="footer_socialMedia">
+                        <a href="#" class="footer-link" id="instagram">
+                            <i class='bx bxl-instagram-alt'></i>
+                        </a>
+                        <a href="#" class="footer-link" id="facebook">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </a>
+                        <a href="https://github.com/manuelamrodrigues/CleanAir" class="footer-link" id="github">
+                            <i class='bx bxl-github'></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <ul class="footer_list">
+                    <li>
+                        <h3>Explorar</h3>
+                    </li>
+                    <li>
+                        <a href="#mudancas" class="footer-link">Mudanças climáticas</a>
+                    </li>
+                    <li>
+                        <a href="#impactos" class="footer-link">Impactos</a>
+                    </li>
+                    <li>
+                        <a href="#doencas" class="footer-link">Doenças</a>
+                    </li>
+                    <li>
+                        <a href="#combater" class="footer-link">Minimizando as mudanças</a>
+                    </li>
+                    <li>
+                        <a href="#ongs" class="footer-link">Outras ONGs</a>
+                    </li>
+                </ul>
+    
+                <div id="footer_copyright">
+                    <p>Todos os direitos reservados <i class='bx bx-copyright'></i> 2024</p>
+                    <p>Desenvolvido por Manuela Monteiro</p>
+                    
+                </div>
+            </div>
+        </footer>
+
+
+
+    </div> <!-- fechando a maior -->
+    
+</body>
+</html>
+
+<script>
+    function teste() {
+        // window.location.href = "./dashboard/dashIndex.html"
+        window.location.href = "login.html"
+        
+    }
+    const labels = [
+        'Dengue',
+        'Malária',
+        'Leishmaniose',
+        'Febre amarela',
+    ];
+    
+
+
+    const data = {  
+        labels: labels,  
+        datasets: [{ 
+            label: 'Temperatura',
+            backgroundColor: '#633062',
+            borderColor: '#fff',
+            data: [50, 25, 15, 10],
+        },
+        ]
+       
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
