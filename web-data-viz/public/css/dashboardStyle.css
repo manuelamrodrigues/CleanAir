@@ -315,6 +315,20 @@ header{
     background-color: #fff;
 }
 
+
+.item input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin-right: 12px;
+    border: 1.5px solid white;
+    transition: all 0.3 ease-in-out;
+    background-color: #fff;
+}
+
 .item button:hover{
     background-color: #633062;
 
