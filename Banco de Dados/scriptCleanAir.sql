@@ -16,3 +16,6 @@ fkUsuario int,
 fkDoencas int, 
 constraint pkComposta primary key (fkUsuario, fkDoencas), 
 grauInternacao tinyint);
+
+select * from usuario;
+select * from dashboard;

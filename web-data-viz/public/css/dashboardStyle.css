@@ -12,6 +12,20 @@ header{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+body::-webkit-scrollbar-track {
+    background: white;        /* color of the tracking area */
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(138, 196, 77, 0.5);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #633062;  /* creates padding around scroll thumb */
+  }
+
 .nav-bar{
     display: flex;
     /* justify-content: space-between; */
@@ -302,17 +316,22 @@ header{
 }
 
 
-.item button{
+.container button{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 16px;
-    width: 16px;
-    border-radius: 10px;
-    margin-right: 12px;
+    height: 26px;
+    width: 75px;
+    border-radius: 6px;
+    /* margin-right: 12px; */
     border: 1.5px solid white;
     transition: all 0.3 ease-in-out;
-    background-color: #fff;
+    background-color: rgba(138, 196, 77, 0.5);
+    color: #fff;
+    margin-left: 130px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 
@@ -329,7 +348,11 @@ header{
     background-color: #fff;
 }
 
-.item button:hover{
+.item input:checked{
+    background-color: #633062;
+}
+
+.container button:hover{
     background-color: #633062;
 
 }
