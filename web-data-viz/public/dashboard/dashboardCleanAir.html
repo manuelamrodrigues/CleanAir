@@ -245,10 +245,9 @@
     
 </body>
 </html>
-
 <script>
+    var idUsuario = sessionStorage.idUsuario;
     function cadastrar() {
-        // window.location.href = "./dashboard/dashIndex.html"
         window.location.href = "login.html"
         
     }
@@ -315,7 +314,7 @@
     // }
 
     // Enviando o valor da nova input
-    fetch("/cleanair/cadastrar", {
+    fetch("/buscarCleanAir/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

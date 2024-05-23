@@ -25,3 +25,17 @@ insert into doencas values
 (2, 'leishmaniose'),
 (3, 'malaria'),
 (4, 'febre amarela');
+
+
+select doencas.nome as nomeDoenca, 
+usuario.idUsuario as idUsuario,
+count(usuario.idUsuario) as qntUsuarios
+from dashboard join 
+usuario on fkUsuario = idUsuario 
+join doencas on fkDoencas = idDoenca
+group by doencas.nome, usuario.idUsuario;
+
+
+
+
+
