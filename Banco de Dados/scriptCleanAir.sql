@@ -19,3 +19,9 @@ grauInternacao tinyint);
 
 select * from usuario;
 select * from dashboard;
+select * from doencas;
+insert into doencas values 
+(1, 'dengue'),
+(2, 'leishmaniose'),
+(3, 'malaria'),
+(4, 'febre amarela');

@@ -24,7 +24,7 @@
                     <li class="nav-item"> <a href="#mudancas" class="nav-link">Mudanças climáticas </a></li>
                     <li class="nav-item"> <a href="#impactos" class="nav-link">Impactos </a></li>
                     <li class="nav-item"> <a href="#doencas" class="nav-link">Doenças </a></li>
-                    <li class="nav-item"> <a href="#combater" class="nav-link">Minimizando as mudanças </a></li>
+                    <li class="nav-item"> <a href="#combater" class="nav-link">Mudanças comportamentais </a></li>
                     <li class="nav-item"> <a href="#ongs" class="nav-link">Outras ONGs </a></li>
                 </ul>
             </div>
@@ -97,8 +97,8 @@
 
                 <ul class="list-itens">
                 <li class="item">
-                    <!-- <button onclick="teste()" id="dengue"></button> -->
-                    <input type="checkbox" id="dengue">
+                    <button onclick="cadastrar()" id="dengue"></button>
+                    <!-- <input type="checkbox" id="dengue"> -->
                     <span class="item-text">Dengue</span>
                 </li>
 
@@ -138,7 +138,7 @@
 
 
         <div class="combater" id="combater">
-            <h1> 3 Ações para minimizar mudanças climáticas</h1>
+            <h1> 3 mudanças comportamentais para mitigar os impactos</h1>
 
             <div class="card-container">
 
@@ -224,7 +224,7 @@
                         <a href="#doencas" class="footer-link">Doenças</a>
                     </li>
                     <li>
-                        <a href="#combater" class="footer-link">Minimizando as mudanças</a>
+                        <a href="#combater" class="footer-link">Mudanças comportamentais</a>
                     </li>
                     <li>
                         <a href="#ongs" class="footer-link">Outras ONGs</a>
@@ -303,11 +303,11 @@
       // ||
       // empresaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+    //   cardErro.style.display = "block";
+    //   mensagem_erro.innerHTML =
+    //     "Mensagem de erro para todos os campos em branco";
 
-      finalizarAguardar();
+    //   finalizarAguardar();
       return false;
     } 
     // else {
