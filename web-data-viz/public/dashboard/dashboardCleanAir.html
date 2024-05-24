@@ -246,116 +246,56 @@
 </body>
 </html>
 <script>
+function cadastrar() {
+    // Capturar o idUsuario do sessionStorage
     var idUsuario = sessionStorage.idUsuario;
-    function cadastrar() {
-        window.location.href = "login.html"
-        
-    }
-    // const labels = [
-    //     'Dengue',
-    //     'Malária',
-    //     'Leishmaniose',
-    //     'Febre amarela',
-    // ];
-    
 
+    // Array para armazenar os ids de doenças selecionadas
+    var doencasSelecionadas = [];
 
-    // const data = {  
-    //     labels: labels,  
-    //     datasets: [{ 
-    //         label: 'Temperatura',
-    //         backgroundColor: '#633062',
-    //         borderColor: '#fff',
-    //         data: [50, 25, 15, 10],
-    //     },
-    //     ]
-       
-    // };
+    // Capturar as checkboxes de doenças
+    var checkboxes = document.querySelectorAll('.list-itens input[type="checkbox"]');
 
-    // const config = {
-    //     type: 'pie',
-    //     data: data,
-    //     options: {}
-    // };
-
-    // const myChart = new Chart(
-    //     document.getElementById('myChart'),
-    //     config
-    // );
-
-
-    function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var dengueVar = dengue.value;
-    var leishVar = leishmaniose.value;
-    var malariaVar = malaria.value;
-    var febreVar = febreAmarela.value;
-    // var empresaVar = listaEmpresas.value
-    if (
-      dengueVar == "" ||
-      leishVar == "" ||
-      malariaVar == "" ||
-      febreVar == "" 
-      // ||
-      // empresaVar == ""
-    ) {
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-    //     "Mensagem de erro para todos os campos em branco";
-
-    //   finalizarAguardar();
-      return false;
-    } 
-    // else {
-    //   setInterval(sumirMensagem, 5000);
-    // }
-
-    // Enviando o valor da nova input
-    fetch("/buscarCleanAir/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        dengueServer: dengueVar,
-        leishServer: leishVar,
-        malariaServer: malariaVar,
-        febreServer: febreVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          // cardErro.style.display = "block";
-
-          // mensagem_erro.innerHTML =
-          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-        //   setTimeout(function () {
-        //                 window.location = "login.html";
-        //             }, 1000); // apenas para exibir o loading
-
-          // limparFormulario();
-          // finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+    // Iterar sobre as checkboxes para encontrar as selecionadas
+    checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            // Adicionar o id da doença ao array doencasSelecionadas
+            doencasSelecionadas.push(checkbox.id);
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-      });
+    });
 
-    return false;
-  }
+    // Verificar se alguma doença foi selecionada
+    if (doencasSelecionadas.length === 0) {
+        // Se nenhuma doença foi selecionada, exibir uma mensagem
+        // Se nenhuma doença foi selecionada, exibir uma mensagem
+        alert("Por favor, selecione pelo menos uma doença.");
+        return;
+    }
 
-//   function sumirMensagem() {
-//     cardErro.style.display = "none";
-//   }
+    // Agora temos o idUsuario e os ids de doenças selecionadas, podemos enviar esses dados para o backend
+    fetch("buscarCleanAir/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idUsuario: idUsuario,
+            doencas: doencasSelecionadas
+        }),
+    })
+    .then(function (resposta) {
+        if (resposta.ok) {
+            // Se o cadastro for bem-sucedido, redirecionar o usuário ou fazer outra ação necessária
+            alert("Inserido");
+        } else {
+            // Se ocorrer algum erro, exibir uma mensagem de erro
+            alert("Ocorreu um erro ao cadastrar as doenças. Por favor, tente novamente.");
+        }
+    })
+    .catch(function (erro) {
+        // Se ocorrer um erro durante a requisição, exibir uma mensagem de erro
+        console.error("Erro durante a requisição:", erro);
+        alert("Ocorreu um erro durante a requisição. Por favor, tente novamente.");
+    });
+}
 </script>

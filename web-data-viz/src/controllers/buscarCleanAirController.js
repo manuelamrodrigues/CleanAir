@@ -3,7 +3,7 @@ var empresaModel = require("../models/buscarCleanAirModel");
 function buscarPorDoenca(req, res) {
   var doenca = req.query.doenca;
 
-  buscarCleanAirModel.buscarPorDoenca(doenca).then((resultado) => {
+  empresaModel.buscarPorDoenca(doenca).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
@@ -17,25 +17,20 @@ function listar(req, res) {
 function buscarPorId(req, res) {
   var idUsuario = req.params.idUsuario;
 
-  buscarCleanAirModel.buscarPorId(idUsuario).then((resultado) => {
+  empresaModel.buscarPorId(idUsuario).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
 function cadastrar(req, res) {
-  var fkUsuario = req.body.idUsuario;
-  var fkDoencas = req.body.doenca;
+  var fkUsuario = req.body.fkUsuario;
+  var fkDoencas = req.body.fkDoencas;
 
-  buscarCleanAirModel.buscarPorDoenca(doenca).then((resultado) => {
-    if (resultado.length > 0) {
-      res
-        .status(401)
-        .json({ mensagem: `a empresa com o cnpj ${cnpj} já existe` });
-    } else {
-      buscarCleanAirModel.cadastrar(fkUsuario, fkDoencas).then((resultado) => {
-        res.status(201).json(resultado);
-      });
-    }
+  // Verifica se já existe alguma entrada para o usuário e doenças fornecidos
+  empresaModel.cadastrar(fkUsuario, fkDoencas).then((resultado) => {
+    res.status(201).json(resultado);
+  }).catch((erro) => {
+    res.status(500).json({ mensagem: "Erro ao cadastrar: " + erro });
   });
 }
 

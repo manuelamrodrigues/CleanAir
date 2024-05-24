@@ -24,8 +24,8 @@ function buscarPorDoenca(idDoenca) {
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(fkUsuario, fkDoencas) {
-  var instrucaoSql = `INSERT INTO dashboard (fkUsuario, fkDoencas) VALUES ('${fkUsuario}', '${fkDoencas}')`;
+function cadastrar(idUsuario, idDoenca) {
+  var instrucaoSql = `INSERT INTO dashboard (fkUsuario, fkDoencas) VALUES ('${idUsuario}', '${idDoenca}')`;
 
   return database.executar(instrucaoSql);
 }
