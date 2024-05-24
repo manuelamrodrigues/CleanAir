@@ -6,7 +6,8 @@ var buscarCleanAirController = require("../controllers/buscarCleanAirController"
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     buscarCleanAirController.cadastrar(req, res);
-})
+},
+console.log("rota"))
 
 router.get("/buscar", function (req, res) {
     buscarCleanAirController.buscarPorDoenca(req, res);

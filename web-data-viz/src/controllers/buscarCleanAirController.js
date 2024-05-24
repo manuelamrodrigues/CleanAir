@@ -1,15 +1,15 @@
-var empresaModel = require("../models/buscarCleanAirModel");
+var buscarCleanAirModel = require("../models/buscarCleanAirModel");
 
 function buscarPorDoenca(req, res) {
   var doenca = req.query.doenca;
 
-  empresaModel.buscarPorDoenca(doenca).then((resultado) => {
+  buscarCleanAirModel.buscarPorDoenca(doenca).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
 function listar(req, res) {
-  empresaModel.listar().then((resultado) => {
+  buscarCleanAirModel.listar().then((resultado) => {
     res.status(200).json(resultado);
   });
 }
@@ -17,17 +17,18 @@ function listar(req, res) {
 function buscarPorId(req, res) {
   var idUsuario = req.params.idUsuario;
 
-  empresaModel.buscarPorId(idUsuario).then((resultado) => {
+  buscarCleanAirModel.buscarPorId(idUsuario).then((resultado) => {
     res.status(200).json(resultado);
   });
 }
 
 function cadastrar(req, res) {
-  var fkUsuario = req.body.fkUsuario;
-  var fkDoencas = req.body.fkDoencas;
+  var idUsuario = req.body.idUsuario;
+  var idDoenca = req.body.idDoenca;
+  console.log("controller")
 
   // Verifica se já existe alguma entrada para o usuário e doenças fornecidos
-  empresaModel.cadastrar(fkUsuario, fkDoencas).then((resultado) => {
+  buscarCleanAirModel.cadastrar(idUsuario, idDoenca).then((resultado) => {
     res.status(201).json(resultado);
   }).catch((erro) => {
     res.status(500).json({ mensagem: "Erro ao cadastrar: " + erro });

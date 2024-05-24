@@ -119,6 +119,20 @@
                     <input type="checkbox" id="febreAmarela">
                     <span class="item-text">Febre amarela</span>
                 </li>
+
+                <select name="selectDoencas" id="selectDoencas">
+                    <option value="dengue">Dengue</option>
+                    <option value="leishmaniose">Leishmaniose</option>
+                    <option value="malaria">Malaria</option>
+                    <option value="febre">Febre amarela</option>
+                </select>
+
+                
+
+
+
+
+
             </ul>
             <button onclick="cadastrar()">Confirmar</button>
             </div>
@@ -234,7 +248,6 @@
                 <div id="footer_copyright">
                     <p>Todos os direitos reservados <i class='bx bx-copyright'></i> 2024</p>
                     <p>Desenvolvido por Manuela Monteiro</p>
-                    
                 </div>
             </div>
         </footer>
@@ -246,56 +259,96 @@
 </body>
 </html>
 <script>
-function cadastrar() {
-    // Capturar o idUsuario do sessionStorage
-    var idUsuario = sessionStorage.idUsuario;
+    function cadastrar() {
+    // aguardar();
 
-    // Array para armazenar os ids de doenças selecionadas
-    var doencasSelecionadas = [];
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
+    var selectDoencasVar = selectDoencas.value;
+    var nomeDoencaVar = selectDoencasVar;
+    // var emailVar = email_input.value;
+    // var senhaVar = senha_input.value;
+    // var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    // var empresaVar = listaEmpresas.value
+    if (
+      selectDoencasVar == "" 
+    //   ||
+    //   emailVar == "" ||
+    //   senhaVar == "" ||
+    //   confirmacaoSenhaVar == "" ||
+    //   empresaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
 
-    // Capturar as checkboxes de doenças
-    var checkboxes = document.querySelectorAll('.list-itens input[type="checkbox"]');
-
-    // Iterar sobre as checkboxes para encontrar as selecionadas
-    checkboxes.forEach(function(checkbox) {
-        if (checkbox.checked) {
-            // Adicionar o id da doença ao array doencasSelecionadas
-            doencasSelecionadas.push(checkbox.id);
-        }
-    });
-
-    // Verificar se alguma doença foi selecionada
-    if (doencasSelecionadas.length === 0) {
-        // Se nenhuma doença foi selecionada, exibir uma mensagem
-        // Se nenhuma doença foi selecionada, exibir uma mensagem
-        alert("Por favor, selecione pelo menos uma doença.");
-        return;
+      finalizarAguardar();
+      return false;
+    } else {
+    //   setInterval(sumirMensagem, 5000);
     }
 
-    // Agora temos o idUsuario e os ids de doenças selecionadas, podemos enviar esses dados para o backend
-    fetch("buscarCleanAir/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            idUsuario: idUsuario,
-            doencas: doencasSelecionadas
-        }),
+    // Enviando o valor da nova input
+    fetch("/novo/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idUsuarioServer: idUsuarioVar,
+        nomeDoencaServer: nomeDoencaVar
+        // emailServer: emailVar,
+        // senhaServer: senhaVar,
+        // empresaServer: empresaVar
+      }),
     })
-    .then(function (resposta) {
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
         if (resposta.ok) {
-            // Se o cadastro for bem-sucedido, redirecionar o usuário ou fazer outra ação necessária
-            alert("Inserido");
+        //   cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
         } else {
-            // Se ocorrer algum erro, exibir uma mensagem de erro
-            alert("Ocorreu um erro ao cadastrar as doenças. Por favor, tente novamente.");
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
-    })
-    .catch(function (erro) {
-        // Se ocorrer um erro durante a requisição, exibir uma mensagem de erro
-        console.error("Erro durante a requisição:", erro);
-        alert("Ocorreu um erro durante a requisição. Por favor, tente novamente.");
-    });
-}
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
+  }
+
+//   function listar() {
+//     fetch("/empresas/listar", {
+//       method: "GET",
+//     })
+//       .then(function (resposta) {
+//         resposta.json().then((empresas) => {
+//           empresas.forEach((empresa) => {
+//             listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+//           });
+//         });
+//       })
+//       .catch(function (resposta) {
+//         console.log(`#ERRO: ${resposta}`);
+//       });
+//   }
+
+//   function sumirMensagem() {
+//     cardErro.style.display = "none";
+//   }
 </script>
