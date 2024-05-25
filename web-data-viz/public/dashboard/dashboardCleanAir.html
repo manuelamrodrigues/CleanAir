@@ -96,30 +96,7 @@
                 </div>
 
                 <ul class="list-itens">
-                <li class="item">
-                    <button onclick="cadastrar()" id="dengue"></button>
-                    <!-- <input type="checkbox" id="dengue"> -->
-                    <span class="item-text">Dengue</span>
-                </li>
-
-                <li class="item">
-                    <!-- <button onclick="teste()" id="malaria"></button> -->
-                    <input type="checkbox" id="malaria">
-                    <span class="item-text">Malária</span>
-                </li>
-
-                <li class="item">
-                    <!-- <button onclick="teste()" id="leishmaniose"></button> -->
-                    <input type="checkbox" id="leishmaniose">
-                    <span class="item-text">Leishmaniose</span>
-                </li>
-
-                <li class="item">
-                    <!-- <button onclick="teste()" id="febreAmarela"></button> -->
-                    <input type="checkbox" id="febreAmarela">
-                    <span class="item-text">Febre amarela</span>
-                </li>
-
+               
                 <select name="selectDoencas" id="selectDoencas">
                     <option value="dengue">Dengue</option>
                     <option value="leishmaniose">Leishmaniose</option>
@@ -313,6 +290,7 @@
 
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            
 
           setTimeout(() => {
             window.location = "login.html";

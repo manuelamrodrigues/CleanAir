@@ -14,7 +14,20 @@ fkUsuario int,
 constraint fkUsuario foreign key (fkUsuario)
 references usuario(idUsuario));
 
+insert into doencas values 
+(1, 'dengue', 1),
+(2, 'leishmaniose', 2),
+(3, 'malaria', 3),
+(4, 'febre amarela', 4);
 
+select * from usuario;
+select * from doencas;
+
+select COUNT(nome) from doencas where nome="dengue";
+
+
+
+-- ANTIGO 
 create table dashboard( 
 fkUsuario int, 
 fkDoencas int, 
@@ -22,29 +35,19 @@ constraint pkComposta primary key (fkUsuario, fkDoencas),
 grauInternacao tinyint);
 select * from dashboard;
 
-select * from usuario;
-select * from doencas;
-insert into doencas values 
-(1, 'dengue', 1),
-(2, 'leishmaniose', 2),
-(3, 'malaria', 3),
-(4, 'febre amarela', 4);
-
-
-select doencas.nome as nomeDoenca, 
-usuario.idUsuario as idUsuario, 
-count(usuario.idUsuario) as qntUsuarios
-from doencas join usuario 
-on fkUsuario = idUsuario
-group by doencas.nome, usuario.idUsuario;
-
-
 select doencas.nome as nomeDoenca, 
 usuario.idUsuario as idUsuario,
 count(usuario.idUsuario) as qntUsuarios
 from dashboard join 
 usuario on fkUsuario = idUsuario 
 join doencas on fkDoencas = idDoenca
+group by doencas.nome, usuario.idUsuario;
+
+select doencas.nome as nomeDoenca, 
+usuario.idUsuario as idUsuario, 
+count(usuario.idUsuario) as qntUsuarios
+from doencas join usuario 
+on fkUsuario = idUsuario
 group by doencas.nome, usuario.idUsuario;
 
 
