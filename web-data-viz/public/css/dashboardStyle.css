@@ -246,7 +246,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     /* max-width: 320px; */
     width: 33.3%;
-    /* height: 50%; */
+    height: 70%;
     border-radius: 8px;
     background-color: #633062;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -270,37 +270,15 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     margin-top: 15px;
     border-radius: 8px;
-    padding: 16px;
+    padding: 30px;
 
     
-}
-
-.list-itens .item{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    height: 50px;
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 0 15px;
-    border-radius: 8px;
-}
-
-.list-itens .item:hover{
-    background-color: rgba(138, 196, 77, 0.5);
-}
-
-
-.item .item-text{
-    font-size: 16px;
-    font-weight: 400;
-    color: white;
 }
 
 
 .select-btn{
     display: flex;
-    height: 100px;
+    height: 180px;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
@@ -310,47 +288,43 @@ body::-webkit-scrollbar-thumb {
 }
 
 .select-btn .btn-text{
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
 
 }
 
+select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 300px; 
+  }
+
 
 .container button{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     height: 26px;
-    width: 75px;
+    width: 80%;
+    max-width: 300px;
     border-radius: 6px;
-    /* margin-right: 12px; */
     border: 1.5px solid white;
     transition: all 0.3 ease-in-out;
     background-color: rgba(138, 196, 77, 0.5);
     color: #fff;
-    margin-left: 130px;
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 16px;
+    margin-left: 30px;
 }
 
-
-.item input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    margin-right: 12px;
-    border: 1.5px solid white;
-    transition: all 0.3 ease-in-out;
-    background-color: #fff;
-}
-
-.item input:checked{
-    background-color: #633062;
-}
 
 .container button:hover{
     background-color: #633062;

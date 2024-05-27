@@ -92,23 +92,18 @@
             <div class="container">
                 <div class="select-btn">
                     <span class="btn-text">Devido as alterações no meio ambiente, algumas doenças, principalmente aquelas transmitidas 
-                        por mosquitos, podem aumentar. Vote em quais dessas doenças você já enfretou esse ano:  </span>
+                        por mosquitos, podem aumentar. Vote em qual doença você já enfretou esse ano:  </span>
                 </div>
 
                 <ul class="list-itens">
                
                 <select name="selectDoencas" id="selectDoencas">
+                    <option value="#">Selecione uma opção</option>
                     <option value="dengue">Dengue</option>
                     <option value="leishmaniose">Leishmaniose</option>
-                    <option value="malaria">Malaria</option>
+                    <option value="malaria">Malária</option>
                     <option value="febre">Febre amarela</option>
                 </select>
-
-                
-
-
-
-
 
             </ul>
             <button onclick="cadastrar()">Confirmar</button>
@@ -249,16 +244,19 @@
     // var confirmacaoSenhaVar = confirmacao_senha_input.value;
     // var empresaVar = listaEmpresas.value
     if (
-      selectDoencasVar == "" 
+      selectDoencasVar == "#" 
     //   ||
     //   emailVar == "" ||
     //   senhaVar == "" ||
     //   confirmacaoSenhaVar == "" ||
     //   empresaVar == ""
     ) {
+        alert("Selecione alguma opção")
+
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
+        
 
       finalizarAguardar();
       return false;
