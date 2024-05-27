@@ -1,6 +1,29 @@
 var novoModel = require("../models/novoModel");
 // var aquarioModel = require("../models/aquarioModel");
 
+function buscarUltimasDoencas(req, res) {
+
+    const limite_linhas = 7;
+
+    var idDoenca = req.params.idDoenca;
+
+    console.log(`Recuperando as ultimas ${limite_linhas} doenças`);
+
+    novoModel.buscarUltimasDoencas(idDoenca, limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas doenças.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
 function autenticar(req, res) {
     var selectDoencas = req.body.selectDoencasServer;
     // var senha = req.body.senhaServer;
@@ -82,6 +105,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
+    buscarUltimasDoencas,
     autenticar,
     cadastrar
 }
