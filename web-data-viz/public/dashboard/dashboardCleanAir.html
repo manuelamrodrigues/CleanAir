@@ -242,6 +242,7 @@
 <script>
     var usuarios = [];
     var doencas = [];
+    var contagemDoencas = [];
     let proximaAtualizacao;
 
     function cadastrar() {
@@ -365,8 +366,21 @@
                             usuarios = [];
                             doencas = [];
                             for (var i = 0; i < json.length; i++) {
-                                usuarios.push(json[i].idUsuarioServer);
-                                doencas.push(json[i].idDoenca);
+                                // usuarios.push(json[i].idUsuarioServer);
+                                // doencas.push(json[i].idDoenca);
+                                var doenca = json[i].idDoenca;
+                            }
+                            if (contagemDoencas[doenca]) {
+                                contagemDoencas[doenca]++;
+                            } else {
+                                // Se a doença ainda não estiver no objeto de contagem, inicializar o contador com 1
+                                contagemDoencas[doenca] = 1;
+                            }
+
+
+                            // Agora, percorra o objeto de contagem e adicione os valores ao array doencas
+                            for (var doenca in contagemDoencas) {
+                                doencas.push(contagemDoencas[doenca]);
                             }
                             plotarGrafico();
                         });
@@ -402,8 +416,8 @@
     // Atualizar o gráfico periodicamente
     window.onload = function () {
         obterDadosGrafico();
-       
-        setInterval(obterDadosGrafico, 300000); 
+
+        setInterval(obterDadosGrafico, 300000);
     };
 
 
