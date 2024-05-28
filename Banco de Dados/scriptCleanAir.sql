@@ -24,7 +24,15 @@ select * from usuario;
 select * from doencas;
 
 select COUNT(nome) from doencas where nome="dengue";
+select COUNT(nome) from doencas where nome="malaria";
+select COUNT(nome) from doencas where idDoenca=1;
 
+select usuario.nome,
+count(doencas.nome) 
+from doencas join usuario
+on doencas.fkUsuario = usuario.idUsuario 
+where doencas.nome='dengue'
+group by usuario.nome;
 
 
 -- ANTIGO 

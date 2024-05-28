@@ -358,7 +358,7 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/novo/ultimas/1`, { cache: 'no-store' })
+        fetch(`/novo/ultimas/4`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     response.json()
@@ -366,23 +366,11 @@
                             usuarios = [];
                             doencas = [];
                             for (var i = 0; i < json.length; i++) {
-                                // usuarios.push(json[i].idUsuarioServer);
-                                // doencas.push(json[i].idDoenca);
-                                var doenca = json[i].idDoenca;
+                                usuarios.push(json[i].idUsuario);
+                                doencas.push(json[i].idDoenca);
+                                contagemDoencas.push(doencas);
                             }
-                            if (contagemDoencas[doenca]) {
-                                contagemDoencas[doenca]++;
-                            } else {
-                                // Se a doença ainda não estiver no objeto de contagem, inicializar o contador com 1
-                                contagemDoencas[doenca] = 1;
-                            }
-
-
-                            // Agora, percorra o objeto de contagem e adicione os valores ao array doencas
-                            for (var doenca in contagemDoencas) {
-                                doencas.push(contagemDoencas[doenca]);
-                            }
-                            plotarGrafico();
+                            plotarGrafico(doencas, contagemDoencas);
                         });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -400,7 +388,7 @@
             labels: doencas,
             datasets: [{
                 label: 'Doenças por usuários',
-                data: doencas,
+                data: usuarios,
                 borderColor: '#633062',
                 backgroundColor: '#633062',
                 tension: 0.1
