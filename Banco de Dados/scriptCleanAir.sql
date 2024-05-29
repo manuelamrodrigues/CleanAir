@@ -23,44 +23,15 @@ insert into doencas values
 select * from usuario;
 select * from doencas;
 
-select COUNT(nome) from doencas where nome="dengue";
-select COUNT(nome) from doencas where nome="malaria";
-select COUNT(nome) from doencas where idDoenca=1;
+SELECT COUNT(nome) as QTD_Dengue FROM doencas WHERE nome = 'dengue';
+SELECT COUNT(nome) as QTD_Malaria FROM doencas WHERE nome = 'malaria';
+SELECT COUNT(nome) as QTD_Leishmaniose FROM doencas WHERE nome = 'leishmaniose';
+SELECT COUNT(nome) as QTD_Febre FROM doencas WHERE nome = 'febre';
 
-select usuario.nome,
-count(doencas.nome) 
+
+select usuario.nome as 'Nome do usuário',
+count(doencas.nome) as 'Total de doenças'
 from doencas join usuario
 on doencas.fkUsuario = usuario.idUsuario 
 where doencas.nome='dengue'
 group by usuario.nome;
-
-
--- ANTIGO 
-create table dashboard( 
-fkUsuario int, 
-fkDoencas int, 
-constraint pkComposta primary key (fkUsuario, fkDoencas), 
-grauInternacao tinyint);
-select * from dashboard;
-
-select doencas.nome as nomeDoenca, 
-usuario.idUsuario as idUsuario,
-count(usuario.idUsuario) as qntUsuarios
-from dashboard join 
-usuario on fkUsuario = idUsuario 
-join doencas on fkDoencas = idDoenca
-group by doencas.nome, usuario.idUsuario;
-
-select doencas.nome as nomeDoenca, 
-usuario.idUsuario as idUsuario, 
-count(usuario.idUsuario) as qntUsuarios
-from doencas join usuario 
-on fkUsuario = idUsuario
-group by doencas.nome, usuario.idUsuario;
-
-
-
-
-
-
-
