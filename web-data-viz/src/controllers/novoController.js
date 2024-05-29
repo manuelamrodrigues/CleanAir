@@ -3,13 +3,75 @@ var novoModel = require("../models/novoModel");
 
 function buscarUltimasDoencas(req, res) {
 
-    const limite_linhas = 7;
+    
+    // var idDoenca = req.params.idDoenca;
 
-    var idDoenca = req.params.idDoenca;
+    console.log(`Recuperando as ultimas doenças`);
 
-    console.log(`Recuperando as ultimas ${limite_linhas} doenças`);
+    novoModel.buscarUltimasDoencas().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas doenças.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
-    novoModel.buscarUltimasDoencas(idDoenca, limite_linhas).then(function (resultado) {
+
+function buscarUltimasDoencas2(req, res) {
+
+    
+    // var idDoenca = req.params.idDoenca;
+
+    console.log(`Recuperando as ultimas doenças`);
+
+    novoModel.buscarUltimasDoencas2().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas doenças.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarUltimasDoencas3(req, res) {
+
+    
+    // var idDoenca = req.params.idDoenca;
+
+    console.log(`Recuperando as ultimas doenças`);
+
+    novoModel.buscarUltimasDoencas3().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas doenças.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+function buscarUltimasDoencas4(req, res) {
+
+    
+    // var idDoenca = req.params.idDoenca;
+
+    console.log(`Recuperando as ultimas doenças`);
+
+    novoModel.buscarUltimasDoencas4().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -106,6 +168,9 @@ function cadastrar(req, res) {
 
 module.exports = {
     buscarUltimasDoencas,
+    buscarUltimasDoencas2,
+    buscarUltimasDoencas3,
+    buscarUltimasDoencas4,
     autenticar,
     cadastrar
 }

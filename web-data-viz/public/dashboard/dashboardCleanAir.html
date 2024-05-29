@@ -121,6 +121,7 @@
             <div class="graficoTempoReal" id="graficos">
                 <canvas id="myChartCanvas"></canvas>
             </div>
+            <button onclick="plotarGrafico()">Gerar grafico</button>
 
         </div>
 
@@ -182,8 +183,7 @@
 
     </div>
 
-
-
+   
 
     <footer>
         <div id="footer_content">
@@ -240,9 +240,10 @@
 
 </html>
 <script>
-    var usuarios = [];
-    var doencas = [];
-    var contagemDoencas = [];
+    var dengue=[];
+    var malaria=[];
+    var leishmaniose=[];
+    var febre=[];
     let proximaAtualizacao;
 
     function cadastrar() {
@@ -353,24 +354,21 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+
+    
     function obterDadosGrafico() {
         if (proximaAtualizacao !== undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/novo/ultimas/4`, { cache: 'no-store' })
+        fetch(`/novo/buscarUltimasDoencas/`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     response.json()
                         .then(json => {
-                            usuarios = [];
-                            doencas = [];
-                            for (var i = 0; i < json.length; i++) {
-                                usuarios.push(json[i].idUsuario);
-                                doencas.push(json[i].idDoenca);
-                                contagemDoencas.push(doencas);
-                            }
-                            plotarGrafico(doencas, contagemDoencas);
+                            dengue = json[0].QTD_Dengue;
+                            plotarGrafico();
+                            console.log(dengue);
                         });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -381,33 +379,127 @@
             });
     }
 
-    // Plotar o gráfico com os dados obtidos
-    function plotarGrafico() {
-        const ctx = document.getElementById('myChartCanvas').getContext('2d');
-        const data = {
-            labels: doencas,
-            datasets: [{
-                label: 'Doenças por usuários',
-                data: usuarios,
-                borderColor: '#633062',
-                backgroundColor: '#633062',
-                tension: 0.1
-            }]
-        };
-        const config = {
-            type: 'bar',
-            data: data,
-        };
-        new Chart(ctx, config);
+    function obterDadosGrafico2() {
+        if (proximaAtualizacao !== undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/novo/buscarUltimasDoencas2/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json()
+                        .then(json => {
+                            malaria = json[0].QTD_Malaria;
+                            console.log(malaria);
+                            plotarGrafico();
+                        });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
+
+
+    function obterDadosGrafico3() {
+        if (proximaAtualizacao !== undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/novo/buscarUltimasDoencas3/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json()
+                        .then(json => {
+                            leishmaniose = json[0].QTD_Leishmaniose;
+                            plotarGrafico();
+                            console.log(leishmaniose);
+                        });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function obterDadosGrafico4() {
+        if (proximaAtualizacao !== undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/novo/buscarUltimasDoencas4/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json()
+                        .then(json => {
+                            febre = json[0].QTD_Febre;
+                            console.log(febre);
+                            plotarGrafico();
+                        });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+
+
+
+
+
+    // Plotar o gráfico com os dados obtidos
+    // Plotar o gráfico com os dados obtidos
+function plotarGrafico() {
+    const ctx = document.getElementById('myChartCanvas').getContext('2d');
+
+    // Destroy existing chart instance if it exists
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
+    const data = {
+        labels: ['Dengue', 'Malaria', 'Leishmaniose', 'Febre Amarela'],
+        datasets: [{
+            label: 'Doenças por usuários',
+            data: [dengue, malaria, leishmaniose, febre],
+            borderColor: '#633062',
+            backgroundColor: ['rgb(216, 0, 0)', '#633062','rgb(209, 63, 0)','#ffffff' ],
+            tension: 0.1
+        }]
+    };
+    const config = {
+        type: 'pie',
+        data: data,
+    };
+    window.myChart = new Chart(ctx, config);
+}
+
 
     // Atualizar o gráfico periodicamente
     window.onload = function () {
         obterDadosGrafico();
+        obterDadosGrafico2();
+        obterDadosGrafico3();
+        obterDadosGrafico4();
 
         setInterval(obterDadosGrafico, 300000);
+        setInterval(obterDadosGrafico2, 300000);
+        setInterval(obterDadosGrafico3, 300000);
+        setInterval(obterDadosGrafico4, 300000);
     };
 
 
 
 </script>
+
+<div style="color: rgb(209, 63, 0)"></div>
+

@@ -1,9 +1,36 @@
 var database = require("../database/config")
 
 
-function buscarUltimasDoencas(idDoenca, limite_linhas) {
+function buscarUltimasDoencas() {
 
-    var instrucaoSql = `SELECT COUNT(nome) FROM doencas WHERE idDoenca = ${idDoenca} ORDER BY idDoenca DESC LIMIT ${limite_linhas}`;
+    var instrucaoSql = `SELECT COUNT(nome) as QTD_Dengue FROM doencas WHERE nome = 'dengue'`;
+    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasDoencas2() {
+
+    var instrucaoSql = `SELECT COUNT(nome) as QTD_Malaria FROM doencas WHERE nome = 'malaria'`;
+    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasDoencas3() {
+
+    var instrucaoSql = `SELECT COUNT(nome) as QTD_Leishmaniose FROM doencas WHERE nome = 'leishmaniose'`;
+    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasDoencas4() {
+
+    var instrucaoSql = `SELECT COUNT(nome) as QTD_Febre FROM doencas WHERE nome = 'febre'`;
     
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -38,6 +65,9 @@ function cadastrar(nomeDoenca,idUsuario) {
 
 module.exports = {
     buscarUltimasDoencas,
+    buscarUltimasDoencas2,
+    buscarUltimasDoencas3,
+    buscarUltimasDoencas4,
     autenticar,
     cadastrar
 };
