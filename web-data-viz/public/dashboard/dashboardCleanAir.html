@@ -121,8 +121,6 @@
             <div class="graficoTempoReal" id="graficos">
                 <canvas id="myChartCanvas"></canvas>
             </div>
-            <button onclick="plotarGrafico()">Gerar grafico</button>
-
         </div>
 
 
@@ -471,8 +469,8 @@ function plotarGrafico() {
         datasets: [{
             label: 'Doenças por usuários',
             data: [dengue, malaria, leishmaniose, febre],
-            borderColor: '#633062',
-            backgroundColor: ['rgb(216, 0, 0)', '#633062','rgb(209, 63, 0)','#ffffff' ],
+            borderColor: ['rgba(138, 196, 77, 0.5)', '#633062','#ffffff','#808080' ],
+            backgroundColor: ['rgba(138, 196, 77, 0.5)', '#633062','#ffffff','#808080' ],
             tension: 0.1
         }]
     };
