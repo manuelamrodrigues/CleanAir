@@ -481,6 +481,18 @@ function plotarGrafico() {
     window.myChart = new Chart(ctx, config);
 }
 
+    function iniciarAtualizarGrafico(){
+        obterDadosGrafico();
+        obterDadosGrafico2();
+        obterDadosGrafico3();
+        obterDadosGrafico4();
+
+        setInterval(obterDadosGrafico, 30000);
+        setInterval(obterDadosGrafico2, 30000);
+        setInterval(obterDadosGrafico3, 30000);
+        setInterval(obterDadosGrafico4, 30000);
+        
+    }
 
     // Atualizar o gráfico periodicamente
     window.onload = function () {
@@ -488,6 +500,7 @@ function plotarGrafico() {
         obterDadosGrafico2();
         obterDadosGrafico3();
         obterDadosGrafico4();
+        iniciarAtualizarGrafico();
 
         setInterval(obterDadosGrafico, 300000);
         setInterval(obterDadosGrafico2, 300000);
@@ -499,5 +512,5 @@ function plotarGrafico() {
 
 </script>
 
-<div style="color: rgb(209, 63, 0)"></div>
+
 
