@@ -194,8 +194,8 @@
                     <a href="#" class="footer-link" id="instagram">
                         <i class='bx bxl-instagram-alt'></i>
                     </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class='bx bxl-facebook-circle'></i>
+                    <a href="#" class="footer-link" id="linkedin">
+                        <i class='bx bxl-linkedin'></i>
                     </a>
                     <a href="https://github.com/manuelamrodrigues/CleanAir" class="footer-link" id="github">
                         <i class='bx bxl-github'></i>
@@ -298,10 +298,12 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    alert("Obrigada por participar!");
                     //   cardErro.style.display = "block";
 
                     mensagem_erro.innerHTML =
                         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                        
 
 
                     setTimeout(() => {
@@ -503,10 +505,10 @@ function plotarGrafico() {
         obterDadosGrafico4();
         iniciarAtualizarGrafico();
 
-        setInterval(obterDadosGrafico, 300000);
-        setInterval(obterDadosGrafico2, 300000);
-        setInterval(obterDadosGrafico3, 300000);
-        setInterval(obterDadosGrafico4, 300000);
+        setInterval(obterDadosGrafico, 25000);
+        setInterval(obterDadosGrafico2, 25000);
+        setInterval(obterDadosGrafico3, 25000);
+        setInterval(obterDadosGrafico4, 25000);
     };
 
 

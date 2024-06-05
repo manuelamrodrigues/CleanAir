@@ -10,6 +10,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link
         href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 </head>
 
@@ -40,7 +44,8 @@
             <img src="./assets/imgs/imgDualidade.png" alt="logo">
             <div id="titulo">
                 <h1>QUEM SOMOS?</h1>
-                <span id="texto">Organização sem fins lucrativos que visa conscientizar a população para a mudança de hábitos e assim, reverter o cenário mundial de alterações climáticas.</span>
+                <span id="texto">Organização sem fins lucrativos que visa conscientizar a população para a mudança de
+                    hábitos e assim, reverter o cenário mundial de alterações climáticas.</span>
             </div>
         </div>
 
@@ -72,22 +77,23 @@
                 </div>
 
                 <div class="slide">
-                    <span>Desastres naturais atingiram cerca de 93% dos municípios brasileiros em 2023, 
-                        afetando a vida de mais de 4.2 milhões de pessoas. A região Sul foi a mais afetada, 
+                    <span>Desastres naturais atingiram cerca de 93% dos municípios brasileiros em 2023,
+                        afetando a vida de mais de 4.2 milhões de pessoas. A região Sul foi a mais afetada,
                         perdendo 46.79 % de casas.
                     </span>
                 </div>
 
                 <div class="slide">
-                    <span>As mudanças climáticas provocam cerca de 150 mil mortes ao ano e, 
+                    <span>As mudanças climáticas provocam cerca de 150 mil mortes ao ano e,
                         segundo especialistas, o número deve dobrar até 2030.
                     </span>
                 </div>
 
                 <div class="slide">
                     <span>A crise climática pode ocasionar o aumento considerável das chuvas,
-                     e em 2023 matou 65 pessoas em 24 horas em São Sebastião, SP.
+                        e em 2023 matou 65 pessoas em 24 horas em São Sebastião, SP.
                     </span>
+                    <div id="map"></div>
                 </div>
 
                 <!-- Bolinhas navegando -->
@@ -123,41 +129,43 @@
             <img src="./assets/imgs/UN-Logo.png" alt="onu logo">
             <div class="tituloOnu">
                 <h1>ONU</h1>
-                <p>É um dos 17 princípios da ONU conter as mudanças climáticas, tendo como meta reduzir em 1.5°C a temperatura da terra até 2030.</p>
-                <p>Para entender mais sobre esse cenário e contribuir para a mudança, <a href="cadastro.html">cadastre-se aqui</a>
+                <p>É um dos 17 princípios da ONU conter as mudanças climáticas, tendo como meta reduzir em 1.5°C a
+                    temperatura da terra até 2030.</p>
+                <p>Para entender mais sobre esse cenário e contribuir para a mudança, <a
+                        href="cadastro.html">cadastre-se aqui</a>
                 </p>
             </div>
         </div>
     </div>
 
-    
+
     <div class="sobreManu" id="sobreManu">
         <img src="./assets/imgs/fotoPessoal.jpg" alt="onu logo">
         <div class="tituloManu">
             <h1>Sobre a desenvolvedora</h1>
-            <p>  Manuela Monteiro Rodrigues</p>
-            <p>  19 anos</p>
-            <p>  Técnica em Desenvolvimento de Sistemas pela ETEC de Vila Formosa</p>
-            <p>  TCC Projeto Ybyrá - 2022</p>
-            <p>  Interessada por tecnologia e movimentos socioambientais</p>
-            
+            <p> Manuela Monteiro Rodrigues</p>
+            <p> 19 anos</p>
+            <p> Técnica em Desenvolvimento de Sistemas pela ETEC de Vila Formosa</p>
+            <p> TCC Projeto Ybyrá - 2022</p>
+            <p> Interessada por tecnologia e movimentos socioambientais</p>
+
         </div>
     </div>
-</div>
+    </div>
 
 
     <footer>
         <div id="footer_content">
             <div id="footer_contacts">
-                 <h1>CleanAir</h1>
+                <h1>CleanAir</h1>
                 <p>Juntos fazemos a diferença!</p>
 
                 <div id="footer_socialMedia">
                     <a href="#" class="footer-link" id="instagram">
                         <i class='bx bxl-instagram-alt'></i>
                     </a>
-                    <a href="#" class="footer-link" id="facebook">
-                        <i class='bx bxl-facebook-circle'></i>
+                    <a href="#" class="footer-link" id="linkedin">
+                        <i class='bx bxl-linkedin'></i>
                     </a>
                     <a href="https://github.com/manuelamrodrigues/CleanAir" class="footer-link" id="github">
                         <i class='bx bxl-github'></i>
@@ -187,11 +195,29 @@
             <div id="footer_copyright">
                 <p>Todos os direitos reservados <i class='bx bx-copyright'></i> 2024</p>
                 <p>Desenvolvido por Manuela Monteiro</p>
-                
+
             </div>
 
 
         </div>
     </footer>
 </body>
+
 </html>
+<script>
+    const map = L.map('map').setView([-24.0833, -46.0000], 5); //ajuste do nivel inicial do zoom o ultimo numero 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 12,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker = L.marker([-23.7951, -45.4146]).addTo(map);
+    var circle = L.circle([-23.7951, -45.4146], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(map);
+
+
+</script>
