@@ -46,17 +46,13 @@ body::-webkit-scrollbar-thumb {
     margin-left: 300px;
 }
 
-.nav-list ul{
+.nav-list p{
     display: flex;
-    justify-content: center;
-    list-style: none;
-    text-align: center;
-}
-
-.nav-item{
-    margin: 0 15px;
-
-
+    justify-content: flex-end;
+    color: white;
+    margin-left: 700px;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .nav-link{
@@ -64,6 +60,11 @@ body::-webkit-scrollbar-thumb {
     font-size: 1.5rem;
     color: white;
     font-weight: 40px;
+}
+
+.mensagemInicial span {
+    margin-left: 5px; /* Adiciona espaço à esquerda do span */
+    margin-right: 5px; /* Adiciona espaço à direita do span */
 }
 
 .login-button{
@@ -541,7 +542,7 @@ footer{
     width: 5rem;
 }
 
-#facebook{
+#linkedin{
     background-color: #4267b3;
     width: 5rem;
 }

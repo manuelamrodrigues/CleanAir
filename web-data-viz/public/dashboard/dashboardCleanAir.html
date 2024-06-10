@@ -24,11 +24,12 @@
 
             <div class="nav-list">
                 <ul>
-                    <li class="nav-item"> <a href="#mudancas" class="nav-link">Mudanças climáticas </a></li>
+                    <p class="mensagemInicial"> Seja bem-vindo(a), <span id="nomeUsuario"></span> </p>
+                    <!-- <li class="nav-item"> <a href="#mudancas" class="nav-link">Mudanças climáticas </a></li>
                     <li class="nav-item"> <a href="#impactos" class="nav-link">Impactos </a></li>
                     <li class="nav-item"> <a href="#doencas" class="nav-link">Doenças </a></li>
                     <li class="nav-item"> <a href="#combater" class="nav-link">Mudanças comportamentais </a></li>
-                    <li class="nav-item"> <a href="#ongs" class="nav-link">Outras ONGs </a></li>
+                    <li class="nav-item"> <a href="#ongs" class="nav-link">Outras ONGs </a></li> -->
                 </ul>
             </div>
 
@@ -191,10 +192,10 @@
                 <p>Juntos fazemos a diferença!</p>
 
                 <div id="footer_socialMedia">
-                    <a href="#" class="footer-link" id="instagram">
+                    <a href="https://www.instagram.com/manu.monteiiro?igsh=MWNhbDV0bzN0cmZrOA%3D%3D&utm_source=qr" class="footer-link" id="instagram">
                         <i class='bx bxl-instagram-alt'></i>
                     </a>
-                    <a href="#" class="footer-link" id="linkedin">
+                    <a href="https://www.linkedin.com/feed/?trk=homepage-basic_sign-in-submit" class="footer-link" id="linkedin">
                         <i class='bx bxl-linkedin'></i>
                     </a>
                     <a href="https://github.com/manuelamrodrigues/CleanAir" class="footer-link" id="github">
@@ -244,6 +245,7 @@
     var leishmaniose=[];
     var febre=[];
     let proximaAtualizacao;
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function cadastrar() {
         // aguardar();
@@ -299,6 +301,7 @@
 
                 if (resposta.ok) {
                     alert("Obrigada por participar!");
+                    iniciarAtualizarGrafico();
                     //   cardErro.style.display = "block";
 
                     mensagem_erro.innerHTML =
@@ -466,17 +469,20 @@ function plotarGrafico() {
 
     // Atualizar o gráfico periodicamente
     window.onload = function () {
-        obterDadosGrafico();
-        obterDadosGrafico2();
-        obterDadosGrafico3();
-        obterDadosGrafico4();
-        iniciarAtualizarGrafico();
+    var numeroDeChamadas = 4; // Número de vezes que você quer chamar a função
 
-        setInterval(obterDadosGrafico, 25000);
-        setInterval(obterDadosGrafico2, 25000);
-        setInterval(obterDadosGrafico3, 25000);
-        setInterval(obterDadosGrafico4, 25000);
-    };
+    for (var i = 0; i < numeroDeChamadas; i++) {
+        (function(indice) {
+            setInterval(function() {
+                obterDadosGrafico(indice);
+            }, 95000);
+        })(i + 1);
+        
+        obterDadosGrafico(i + 1); 
+        iniciarAtualizarGrafico();
+    }
+};
+
 
 
 
